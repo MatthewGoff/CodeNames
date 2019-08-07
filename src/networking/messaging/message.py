@@ -1,0 +1,4 @@
+
+
+class Message(object):
+	None

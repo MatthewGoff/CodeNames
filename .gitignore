@@ -1,0 +1,8 @@
+/build
+/dist
+application.spec
+build.bat
+Icon.ico
+Icon.xcf
+main.spec
+**/__pycache__

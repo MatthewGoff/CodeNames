@@ -1,0 +1,4 @@
+
+
+class GameEvent(object):
+	None
