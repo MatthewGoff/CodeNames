@@ -6,3 +6,4 @@ Icon.ico
 Icon.xcf
 main.spec
 **/__pycache__
+/ImageProcessing

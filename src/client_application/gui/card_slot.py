@@ -42,7 +42,7 @@ class CardSlot():
 		self.cover.create_rectangle(-1, -1, self.SIZE, self.SIZE, fill = self.color)
 		self.border.create_rectangle(-10, -10, self.SIZE + 20, self.SIZE + 20, fill = self.color)
 
-		image = Image.open("../Resources/CoverArt.jpg").resize((self.SIZE, self.SIZE), Image.ANTIALIAS)
+		image = Image.open("../Resources/Artwork/artwork" + str(card.artwork) + ".png").resize((self.SIZE, self.SIZE), Image.ANTIALIAS)
 		self.imageTK = ImageTk.PhotoImage(image)
 		self.artwork.configure(image = self.imageTK)
 

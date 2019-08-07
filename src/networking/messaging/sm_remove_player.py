@@ -13,6 +13,6 @@ class SMRemovePlayer(Message):
 		byte_array += self.uid.to_bytes(4, byteorder = "big")
 		return byte_array
 
-	def deserialize(self, byte_array):
+	def deserialize(byte_array):
 		uid = int.from_bytes(byte_array[4:8], byteorder = "big")
 		return SMRemovePlayer(uid)

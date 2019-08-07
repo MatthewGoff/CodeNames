@@ -1,5 +1,4 @@
 import tkinter
-from PIL import ImageTk, Image
 
 from client_application.gui.card_slot import CardSlot
 from game.game_events.click_event import ClickEvent
@@ -139,7 +138,8 @@ class PlayWindow():
 
 	def handle_overwrite_players_event(self, overwrite_players_event):
 		self.player_labels = {}
-		for player in overwrite_players_event.players:
+		for key in overwrite_players_event.players.keys():
+			player = overwrite_players_event.players[key]
 			if (player.team == "red"):
 				color = "red"
 			elif (player.team == "blue"):
@@ -147,10 +147,10 @@ class PlayWindow():
 			elif (player.team == "spectator"):
 				color = "black"
 
-			if (player.role == "agent"):
-				font = ("ariel", 12)
-			elif (player.role == "spymaster"):
+			if (player.spymaster):
 				font = ("ariel", 12, "bold")
+			else:
+				font = ("ariel", 12)
 
 			self.player_labels[player.uid] = tkinter.Label(self.window, fg = color, text = player.name, font = font, anchor = "nw")
 

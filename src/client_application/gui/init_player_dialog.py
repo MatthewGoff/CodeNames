@@ -78,7 +78,7 @@ class InitPlayerDialog(object):
 	def open(self, parent):
 		self.window.update()
 		self.window.deiconify()
-		self.window.transient(parent)
+		#self.window.transient(parent)
 		self.window.grab_set()
 		parent.wait_window(self.window)
 

@@ -11,7 +11,7 @@ from game.game_events.overwrite_players_event import OverwritePlayersEvent
 
 class Game():
 
-	NUM_ARTWORK = 100
+	NUM_ARTWORK = 280
 
 	def __init__(self):
 		self.cards = None
@@ -69,7 +69,7 @@ class Game():
 		self.notify_listeners(ClickEvent(x_coord, y_coord))
 
 	def new_player(self, uid, name):
-		self.players[uid] = Player(uid, name)
+		self.players[uid] = Player(uid, name, "spectator", False)
 		self.notify_listeners(NewPlayerEvent(self.players[uid]))
 
 	def remove_player(self, uid):
@@ -82,7 +82,8 @@ class Game():
 			spymaster = False
 		if (role == "spymaster"):
 			spymaster = True
-		self.players[uid].role = spymaster
+		print("initializing player and spymater = " + str(spymaster))
+		self.players[uid].spymaster = spymaster
 		self.notify_listeners(InitPlayerEvent(self.players[uid]))
 
 	def register_game_listener(self, callback):

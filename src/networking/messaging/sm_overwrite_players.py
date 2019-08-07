@@ -31,8 +31,8 @@ class SMOverwritePlayers(Message):
 			index += 4
 			name = byte_array[index:index + name_length].decode()
 			index += name_length
-			team = SMOverwritePlayers.int_to_team(int(byte_array[index + 4]))
-			index += 4
+			team = SMOverwritePlayers.int_to_team(int(byte_array[index]))
+			index += 1
 			spymaster = bool(byte_array[index])
 			index += 1
 
@@ -47,6 +47,8 @@ class SMOverwritePlayers(Message):
 			return 0
 		elif (team == "blue"):
 			return 1
+		elif (team == "spectator"):
+			return 2
 		else:
 			return 0
 
@@ -55,5 +57,7 @@ class SMOverwritePlayers(Message):
 			return "red"
 		elif (integer == 1):
 			return "blue"
+		elif (integer == 2):
+			return "spectator"
 		else:
 			return "red"
